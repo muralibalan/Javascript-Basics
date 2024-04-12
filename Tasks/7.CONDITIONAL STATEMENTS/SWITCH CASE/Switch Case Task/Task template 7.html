@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <h1>Switch Statement</h1>
+    <!-- Input declaration -->
+    <label for="number">Enter the Number :</label>
+    <input type="number" id="inputNumber">
+    <button onclick="print(inputNumber.valueAsNumber)">Print</button>
+    <div class="resultId"></div>
+    <script>
+//Switch Statements
+        function print(num){
+            let values;
+            switch (num) {
+                case 1: 
+                        values = "ONE"
+                        break;
+                case 2: 
+                        values = "TWO"
+                        break;
+                case 3: 
+                        values = "THREE"
+                        break;
+                case 4: 
+                        values = "FOUR"
+                        break;
+                case 5: 
+                        values = "FIVE"
+                        break;
+                default:
+                        values = "PLEASE TRY AGAIN"
+                        break;
+            }
+            //Display the result
+            let res = document.querySelector(".resultId");
+            res.innerHTML = values;
+        }
+
+    </script>
+</body>
+
+</html>

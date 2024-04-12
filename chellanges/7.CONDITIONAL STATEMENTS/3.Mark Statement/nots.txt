@@ -1,0 +1,122 @@
+ //DOM Declaration inputs.......
+ let lanMark = document.getElementById("langId");
+ let phyMark = document.getElementById("physicsId");
+ let matMark = document.getElementById("mathsId");
+ let cheMark = document.getElementById("chemistryId");
+ let bioMark = document.getElementById("bioId");
+ let gradeResult = document.getElementById("gradeId");
+ let statusResult = document.getElementById("passId");
+ let eligibleResult = document.getElementById("eligibleId");
+ let totalResult = document.getElementById("totalId");
+ let totalAvg =document.getElementById("avgId");
+ let cutoffResult = document.getElementById("cutoffId");
+ let inputBoxReset = document.getElementsByClassName("reset");
+
+//This is Main Function Eligibility checking........
+function checkEligibility(){
+    //Store the all Marks in Array...
+    let studentMarks = [
+        lanMark.value,
+        phyMark.value,
+        matMark.value,
+        cheMark.value,
+        bioMark.value
+    ];
+    //This is inputs Validation......
+    if(studentMarks.some(mark => mark === '')){
+        alert("Plaese Enter the All Marks");
+        return;
+    }
+    if(studentMarks.some(mark => mark > 100)){
+        alert("Please Enter the Mark upto '100'...");
+        return;
+    }
+    if(studentMarks.some(mark => mark <0)){
+        alert("Please Enter the Mark Above '0'...")
+        return;
+    }
+    //This is Convert the Marks string to Number....using map method...
+        let parsedMark = studentMarks.map(mark => parseInt(mark));
+    //This is Total Marks adding and Displaying...using reduce function...
+        let total = parsedMark.reduce((acc,mark)=> acc + mark,0);
+    //This is Finding Average....
+        let findAvg = total/5;
+    //This is Grade Checking....using Switch Case....
+    let grade;
+    if(findAvg>90){
+        grade= "A";
+    }else if(findAvg <= 90 && findAvg > 60){
+        grade = "B";
+    }else if(findAvg <=60 && findAvg >40){
+        grade = "C";
+    }
+        //using switch case...
+        switch(grade){
+             case "A":{
+                gradeResult.value ="A Grade";
+                break;
+             }
+            case "B":{
+                gradeResult.value = "B Grade";
+                break;
+            }
+            case "C":{
+                gradeResult.value = "C Grade";  
+                break;
+            }
+        }
+         
+    //This is cutoff checking.....
+    let cutoff = parsedMark[1]/2 + parsedMark[2] + parsedMark[3]/2;
+
+    // This is Eligibility checking....
+        let cutoffCheck;
+        if(cutoff >180){
+            cutoffCheck = "A";
+        }else if(cutoff <=180 && cutoff >160){
+            cutoffCheck = "B";
+        }else if(cutoff < 160){
+            cutoffCheck = "C";
+        }
+        //using Switch case...
+        switch(cutoffCheck){
+        case "A":{
+            eligibleResult.value = "Eligible for Medicine";
+            break;
+        }
+        case "B":{
+            eligibleResult.value = "Eligible for Engneearing";
+            break;
+        }
+        case "C":{
+            eligibleResult.value = "Not Eligible for any Collage";
+            break;
+        }
+        }
+
+    //This is Pass or Fail checking..... 
+    if(parsedMark.every(mark => mark >= 35)){
+        //This is Displaying all Result...
+            totalResult.value = total;
+            totalAvg.value = `${findAvg} %`
+            statusResult.value = "Pass";
+            cutoffResult.value = cutoff;
+
+    }else{
+            totalResult.value = total;
+            totalAvg.value = '';
+            statusResult.value = "Fail";
+            cutoffResult.value = '';
+            gradeResult.value = '';
+            eligibleResult.value = '';
+    }
+}
+
+// This is Reset function.......
+function reset(){
+    for( let i = 0 ; i < inputBoxReset.length ; i++){
+        inputBoxReset[i].value = '';
+    }
+}
+
+****************************************************************

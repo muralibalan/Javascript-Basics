@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital@1&family=Roboto:wght@300&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet" />
+    <title>Inputs</title>
+    <link href="Course Details.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="mainWebpage">
+        <div class="topHeader">
+            <div class="headerContent">
+                <div>
+                    <img src="Images/Logo_03.png" style="width: 30px; height: 35px" />
+                </div>
+                <div id="headerimageContent">
+                   Soft Tech Ashram
+                </div>
+            </div>
+            <div id="heading">JavaScript Training Program</div>
+            <div class="dateTime">
+               
+            </div>
+        </div>
+        
+        <div class="mainBody">
+            <div class="outputWindow">
+                <div class="outputContent"><br>
+                    <span id="exerciseHeading">
+                             <span id="inputId">Course Details</span>
+                            </span>
+                    <hr width=100%>  
+                    <div class="main">
+                    <div class="main">
+                      <label>Enter Name</label> 
+                            <!--  Input field -->
+                            <input type="text" placeholder="Enter Your Name." id="inputName">
+                        </div><br><br>
+                        <div class="main">
+                            <label>Enter Age</label>
+                            <!--  Input field -->
+                            <input type="number" id="inputAge" placeholder="Enter Your Age.">
+                        </div><br><br>
+                        <div class="main">
+                            <label>Gender</label>
+                            <!-- male -->
+                            <label for="Gender">Male :</label>
+                            <input type="radio" id="inputMale" name="Gender" value="Male">
+                            <!-- female -->
+                            <label for="Gender">FeMale :</label>
+                            <input type="radio" id="inputFemale" name="Gender" value="Female">
+                        </div><br><br>
+                        <div class="main">
+                            <label>Course</label>
+                            <!-- Dropdown : Add courses -->
+                            <select name="courses" id="courses1">
+                                <option value="null">Select Courses</option>
+                                <option value="JavaScript">JavaScript</option>
+                                <option value="java">Java</option>
+                                <option value="python">Python</option>
+                                <option value="React">React</option>
+                            </select>
+                            <br>
+                            <button onclick="submit()">click</button>
+                        </div><br><br>
+                        <!-- output here -->
+                        <div id="resultID"></div>
+                    </div>  
+                </div>
+            </div>
+        </div>
+        <div class="footerContent">
+            <div style="font-size: 20px">
+                <i>Learning Objective : Inputs</i>
+            </div>
+            <div style="color:blue; font-size: 30px; padding: 10px;" >SoftTechAshram.Com  </div>
+        </div>
+    </div>
+    <script>
+        // Code Statements
+        function submit(){
+            let name = document.getElementById("inputName").value;
+            let age = document.getElementById("inputAge").value;
+            let inputGender = document.querySelector('input[name="Gender"]:checked');
+            let selectedGender = inputGender.value
+            let courses = document.getElementById("courses1").value;
+            document.getElementById("resultID").innerHTML = "Name :" + name + "<br>" +"Age :" +  age + "<br>" + "Gender :" + selectedGender + "<br>" + "Course :" + courses;
+        } 
+    </script>
+   
+</body>
+
+</html>

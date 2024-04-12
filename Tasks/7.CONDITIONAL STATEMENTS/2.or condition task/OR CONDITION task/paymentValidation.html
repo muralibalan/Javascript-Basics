@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Payment Validation</h1>
+    <div id="cardStatus"></div> 
+
+    <script>
+        const gpayPayment = false;
+        const creditcardPayment = false;
+        //Conditions
+        if(gpayPayment === true || creditcardPayment === true){
+            document.getElementById("cardStatus").innerHTML = "The Payment is valied";
+        }else{
+            document.getElementById("cardStatus").innerHTML = "The Payment is not valied";
+        }
+    </script>
+</body>
+</html>
+<!-- Write a program to determine if a payment is valid. A payment is valid if it's either a credit card payment or a Google payment. {HINT: Use OR operator} -->

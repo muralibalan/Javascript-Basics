@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <div>
+    <label>Enter A Number</label>:<input type="number" id="inputNumber"><br><br>
+    <button onclick='calculate(inputNumber.value)'>Increment</button><br><br>
+    <label>Result</label>:<input type="number" id="resultId" readonly>
+</div>
+</head>
+<body>
+    <script>
+        function calculate(Number){
+            //Code Statements
+            Number++;
+            console.log(Number)
+            document.getElementById("resultId").value = Number;
+        }
+    </script>
+</body>
+</html>

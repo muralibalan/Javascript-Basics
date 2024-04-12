@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>movie rating</title>
+</head>
+<body>
+    <label>Get Movie rating(Out of 10)</label>
+    <input type="number" id="movieMark"><br><br>
+    <button onclick="movieCalculate(movieMark.valueAsNumber)">Calculate</button><br><br>
+    <div id="movieRatingMessage"></div>
+
+    <script>
+        //Input declaration
+        function movieCalculate(rate) {
+            //Body of the main function
+            if(rate>8){
+                document.write("This is Excellent Movie!!!!")
+            } else{
+                document.write("This is very Bore Movie.....")
+            }
+        }
+    </script>
+</body>
+
+</html>
+<!-- Write a Program to categorize a movie based on its rating. [Hint: Get input for rating, If the input is more than 8,Then Categorize the movie as Excellent and so on] -->
